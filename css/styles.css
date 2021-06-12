@@ -85,7 +85,7 @@ header .container {
   height: 4px;
   bottom: 0px;
   left: 0px;
-  color: var(--accent-color);
+  background-color: var(--accent-color);
   border-radius: 2px;
 }
 
