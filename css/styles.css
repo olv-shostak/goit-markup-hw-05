@@ -5,6 +5,8 @@
   --accent-color: #2196f3;
   --secondary-background: #2f303a;
   --primary-background-color: #ffffff;
+  --duration: 250ms;
+  --timing-fuction: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
   color: var(--title-text-color);
@@ -103,6 +105,10 @@ header .container {
   font-size: 14px;
   line-height: 1.143;
   letter-spacing: 0.02em;
+
+  transition-property: color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-fuction);
 }
 
 .site-nav .link:hover,
@@ -129,6 +135,10 @@ header .container {
   font-size: 14px;
   line-height: 1.143;
   letter-spacing: 0.02em;
+
+  transition-property: color, fill;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-fuction);
 }
 
 .contact-list .link:hover,
@@ -383,6 +393,10 @@ header .container {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+
+  transition-property: background-color, fill;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-fuction);
 }
 
 .sl-link:hover,
@@ -424,6 +438,10 @@ header .container {
   height: 100%;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition-property: border-color, fill;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-fuction);
 }
 
 .company {
@@ -549,6 +567,10 @@ header .container {
   height: 44px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+
+  transition-property: background-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-fuction);
 }
 
 .join-link:hover,
@@ -595,6 +617,10 @@ header .container {
   color: inherit;
   background-color: #f5f4fa;
   cursor: pointer;
+
+  transition-property: color, background-color, box-shadow;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-fuction);
 }
 
 .portfolio-button:hover,
@@ -648,24 +674,87 @@ header .container {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.card-set-link {
+  transition-property: box-shadow;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-fuction);
+}
+
 .product-thumb {
   position: relative;
+  overflow: hidden;
 }
 
 .card-text {
   position: absolute;
+  transform: translateY(100%);
+  transition: transform var(--duration) var(--timing-fuction);
   top: 0;
   left: 0;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
   padding: 63px 24px;
   font-size: 18px;
   line-height: 1.556;
   letter-spacing: 0.03em;
   color: var(--dark-background-text);
   background-color: rgba(33, 150, 243, 0.9);
-  opacity: 0;
+  opacity: 1;
 }
 
 .card-set-link:hover .card-text,
 .card-set-link:focus .card-text {
   opacity: 1;
+  transform: translateY(0);
+}
+
+/* MODAL WINDOW */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity var(--duration) var(--timing-fuction);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-height: 581px;
+  min-width: 528px;
+  background-color: #ffffff;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--duration) linear;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-background-color);
+}
+
+.close-image {
+  width: 11px;
+  height: 11px;
 }

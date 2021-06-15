@@ -55,7 +55,9 @@
           <h1 class="hero-title">
             Эффективные решения<br />для вашего бизнеса
           </h1>
-          <button type="button" class="hero-button">Заказать услугу</button>
+          <button type="button" class="hero-button" data-modal-open>
+            Заказать услугу
+          </button>
         </div>
       </section>
       <section class="features">
@@ -142,12 +144,12 @@
             <li class="doing-item">
               <img
                 src="./images/box3.jpg"
-                alt="Дизанерские решения"
+                alt="Дизайнерские решения"
                 width="370"
                 height="294"
               />
               <div class="doing-thumb">
-                <h3 class="doing-text">Дизанерские решения</h3>
+                <h3 class="doing-text">Дизайнерские решения</h3>
               </div>
             </li>
           </ul>
@@ -461,5 +463,16 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="modal-close" data-modal-close>
+          <svg class="close-image">
+            <use href="./images/symbol-defs.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
